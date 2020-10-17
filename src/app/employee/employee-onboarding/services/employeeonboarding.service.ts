@@ -18,6 +18,6 @@ export class EmployeeonboardingService {
         city: 'Test',
         pin: 400080
       }
-    }
+    };
   }
 }

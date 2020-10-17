@@ -22,7 +22,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  trackByFn(i:number, data: Employee ) {
+  trackByFn(i: number, data: Employee ) {
     return data.id ?? i;
   }
 

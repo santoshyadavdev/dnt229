@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class TodosDetailsComponent implements OnInit {
 
-  id: number = 0;
+  id = 0;
 
   id$ = this.route.paramMap.pipe(
     map((key) => key.get('todoid'))

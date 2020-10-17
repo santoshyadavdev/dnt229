@@ -10,9 +10,9 @@ import { DepartmentService } from '../department/services/department.service';
 })
 export class ContainerComponent implements OnInit, AfterContentInit {
 
-  @ContentChild(DepartmentComponent, { static: true }) deptComponent : DepartmentComponent;
+  @ContentChild(DepartmentComponent, { static: true }) deptComponent: DepartmentComponent;
 
-  @ContentChildren(DepartmentComponent) deptListComponent : QueryList<DepartmentComponent>;
+  @ContentChildren(DepartmentComponent) deptListComponent: QueryList<DepartmentComponent>;
 
   constructor(@Host() private deptService: DepartmentService) { }
 
@@ -22,7 +22,7 @@ export class ContainerComponent implements OnInit, AfterContentInit {
 
 
   ngAfterContentInit(): void {
-    this.deptListComponent.forEach((deptComponent)=> console.log(deptComponent))
+    this.deptListComponent.forEach((deptComponent) => console.log(deptComponent));
   }
 
 }

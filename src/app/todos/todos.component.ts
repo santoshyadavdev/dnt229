@@ -14,12 +14,12 @@ export class TodosComponent implements OnInit {
   todoList: Todos[];
 
   constructor(private todoService: TodosService,
-    private loggerService: LoggerService,
-    private route: ActivatedRoute) { }
+              private loggerService: LoggerService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // this.todoService.getTodoList().subscribe(res => this.todoList = res);
-    this.route.data.subscribe((res) => this.todoList = res['todoList'])
+    this.route.data.subscribe((res) => this.todoList = res.todoList);
   }
 
 

@@ -15,7 +15,7 @@ export class AppComponent {
   role = 'Users';
 
   constructor(@SkipSelf() private deptService: DepartmentService,
-    @Optional() private loggerService: LoggerService) { }
+              @Optional() private loggerService: LoggerService) { }
 
 
   addDepartment() {

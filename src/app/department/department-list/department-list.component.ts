@@ -14,7 +14,7 @@ export class DepartmentListComponent implements OnInit, OnChanges {
 
   @Input() deptList: Department[] = [];
 
-  @Input() title: string = '';
+  @Input() title = '';
 
   @Output() selectDepartment = new EventEmitter<Department>();
 

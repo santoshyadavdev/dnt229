@@ -11,10 +11,10 @@ export class AppComponent {
   title = 'admin';
 
   constructor(private appService: AppService,
-      @Inject(windowService) private windowService: any,
-      @Inject(seesionStorageService) private sessionStorageService: any) {
+              @Inject(windowService) private windowService: any,
+              @Inject(seesionStorageService) private sessionStorageService: any) {
     // this.appService.getData().subscribe();
-    console.log(sessionStorageService)
+    console.log(sessionStorageService);
   }
 
 }

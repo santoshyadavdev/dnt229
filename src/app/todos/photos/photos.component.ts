@@ -9,7 +9,7 @@ import { TodosService } from '../service/todos.service';
 })
 export class PhotosComponent implements OnInit {
 
-  loaded: number = 0;
+  loaded = 0;
 
   constructor(private todoService: TodosService) { }
 

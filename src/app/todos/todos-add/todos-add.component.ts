@@ -18,10 +18,10 @@ export class TodosAddComponent implements OnInit {
   };
 
   constructor(private todoService: TodosService,
-    private route: ActivatedRoute) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((res: Params)=> console.log(res['id']));
+    this.route.params.subscribe((res: Params) => console.log(res.id));
     // this.route.paramMap.subscribe(res => console.log(res.get('userid')));
   }
 
@@ -29,7 +29,7 @@ export class TodosAddComponent implements OnInit {
 
     this.todoService.addTodo(this.todo).subscribe(res => {
       console.log(res);
-      todoForm.resetForm({ userId: 0, title: 'Default Title', completed: true })
+      todoForm.resetForm({ userId: 0, title: 'Default Title', completed: true });
     });
   }
 

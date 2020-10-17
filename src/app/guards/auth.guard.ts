@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
 
 
   constructor(private loginService: LoginService,
-    private router: Router) { }
+              private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,

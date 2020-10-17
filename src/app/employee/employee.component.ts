@@ -28,9 +28,9 @@ export class EmployeeComponent implements OnInit, DoCheck, AfterViewInit {
 
   name: string;
 
-  email: string = 'Abhijit@dnt.com';
+  email = 'Abhijit@dnt.com';
 
-  hidden: boolean = false;
+  hidden = false;
 
   constructor() {
     this.name = 'Abhijit';
@@ -38,7 +38,7 @@ export class EmployeeComponent implements OnInit, DoCheck, AfterViewInit {
 
   ngOnInit(): void {
     this.headerComponent.title = 'Employee List';
-    this.emailDiv.nativeElement.innerText = "The Email is not valid";
+    this.emailDiv.nativeElement.innerText = 'The Email is not valid';
   }
 
 
@@ -48,7 +48,7 @@ export class EmployeeComponent implements OnInit, DoCheck, AfterViewInit {
 
   ngAfterViewInit(): void {
     // setTimeout(() => {
-      this.headerListComponet.forEach((headerComp) => headerComp.title = "New Header Title");
+      this.headerListComponet.forEach((headerComp) => headerComp.title = 'New Header Title');
     // }, 0);
   }
 

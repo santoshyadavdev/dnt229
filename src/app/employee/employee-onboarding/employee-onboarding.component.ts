@@ -18,7 +18,7 @@ export class EmployeeOnboardingComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder,
-    private employeeService: EmployeeonboardingService) { }
+              private employeeService: EmployeeonboardingService) { }
 
   ngOnInit(): void {
     this.onboardingForm = this.fb.group({
@@ -61,7 +61,7 @@ export class EmployeeOnboardingComponent implements OnInit {
 
 
   addExp() {
-    this.pastExp.push(this.buildForm())
+    this.pastExp.push(this.buildForm());
   }
 
   removeExp(i: number) {

@@ -8,7 +8,7 @@ import { Todos } from '../service/todos';
 })
 export class TodosListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'userId', 'title', 'completed','details'];
+  displayedColumns: string[] = ['id', 'userId', 'title', 'completed', 'details'];
   @Input() todos: Todos[];
   constructor() { }
 
