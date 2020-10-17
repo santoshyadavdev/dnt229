@@ -1,0 +1,26 @@
+<h1>
+  Department
+</h1>
+
+<button class="btn btn=primary" (click)="addDepartment()">
+  Add Department
+</button>
+
+<pre>
+  {{ departmentList | json}}
+</pre>
+
+<dnt-department-list [deptList]="departmentList" title="Department List" (selectDepartment)="receiveFromChild($event)">
+</dnt-department-list>
+
+<h3>
+  Selected Department
+</h3>
+<div *ngIf="selectedDepartment">
+  {{selectedDepartment.name}}
+</div>
+
+
+<!-- <div ngClass ></div> -->
+
+<!-- <div [innertext]=""></div> -->

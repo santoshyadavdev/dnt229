@@ -1,0 +1,21 @@
+<!-- <dnt-photos></dnt-photos> -->
+<!-- <dnt-todos-add></dnt-todos-add> -->
+<button mat-raised-button color="primary" [routerLink]="['task/add']">Add Todo</button>
+
+<mat-divider></mat-divider>
+ <dnt-todos-edit></dnt-todos-edit>
+<mat-divider></mat-divider>
+
+<!-- <button mat-raised-button color="primary" (click)="updateTodo()">Update Todo</button> -->
+
+<mat-divider></mat-divider>
+<button mat-raised-button color="primary" (click)="deleteTodo()">Delete Todo</button>
+
+<mat-divider></mat-divider>
+<router-outlet></router-outlet>
+<h1>
+  Todo List
+</h1>
+<dnt-todos-list [todos]="todoList">
+
+</dnt-todos-list>

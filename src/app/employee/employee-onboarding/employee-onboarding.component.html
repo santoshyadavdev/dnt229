@@ -1,0 +1,115 @@
+<pre>{{onboardingForm.value | json}}
+{{onboardingForm.invalid}}
+{{onboardingForm.pristine}}
+{{onboardingForm.dirty}}
+{{onboardingForm.errors | json}}
+</pre>
+
+<button class="btn btn-primary" (click)="addPassport()">Add Passport</button>
+<form [formGroup]="onboardingForm" (ngSubmit)="addEmployee()">
+
+  <div class="form-group" *ngIf="onboardingForm.get('passport')">
+    <input type="text" class="form-control" formControlName="passport" placeholder="Enter your Passport details">
+  </div>
+
+  <div class="form-group">
+    <input type="file" class="form-control" formControlName="file" placeholder="Enter your Passport details">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter your Name">
+    {{onboardingForm.get('name').errors | json}}
+    <div *ngIf="onboardingForm.get('name').hasError('required')">
+      Please enter the name!
+    </div>
+    <div *ngIf="onboardingForm.get('name').hasError('minlength')">
+      Please enter the name more than 2 characters!
+    </div>
+    <div *ngIf="onboardingForm.get('name').hasError('invalidName')">
+      Your name conatains "test" which is not valid name!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" bsDatepicker class="form-control" formControlName="dob" placeholder="Date of Birth">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="email" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="password" placeholder="Enter Password">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="confirmPassword" placeholder="Enter Password to confirm">
+    {{onboardingForm.get('confirmPassword').errors | json}}
+    <div *ngIf="onboardingForm.hasError('invalidpassword')">
+      The password do not match!
+    </div>
+  </div>
+
+  <div formGroupName="address">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="addr1" placeholder="Address Line 1">
+      {{onboardingForm.get('address.addr1').errors | json }}
+      <div *ngIf="onboardingForm.get('address.addr1').hasError('required')">
+        Please enter the the address!
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="addr2" placeholder="Address Line 2">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="city" placeholder="City">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="pin" placeholder="Pin">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success" (click)="addExp()">Add Experience</button>
+  </div>
+
+  <div formArrayName="pastExp">
+    <div *ngFor="let control of pastExp.controls;let i=index">
+      <div [formGroupName]="i">
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="employer" placeholder="Enter the employer Name">
+          <div *ngIf="onboardingForm.get(['pastExp',i,'employer']).hasError('required')">
+            Please enter the Employer Name!
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" bsDatepicker class="form-control" formControlName="fromDate" placeholder="Form Date">
+        </div>
+        <div class="form-group">
+          <input type="text" bsDatepicker class="form-control" formControlName="toDate" placeholder="To Date">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="designation" placeholder="Enter the designation">
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-danger" (click)="removeExp(i)">
+          Remove Experience
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-danger" (click)="removeAll()">
+      Remove All
+    </button>
+  </div>
+
+  <div class="form-group">
+    <button [disabled]="onboardingForm.invalid" class="btn btn-success" type="submit">Add Employee</button>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success" (click)="resetForm()">Reset Form</button>
+  </div>
+
+</form>

@@ -1,0 +1,31 @@
+<!-- <h2>Employee list</h2> -->
+<dnt-header></dnt-header>
+<dnt-header></dnt-header>
+<dnt-header></dnt-header>
+
+
+<!-- Interpolation -->
+{{name}}
+
+<!-- property Binding -->
+<div [hidden]="hidden" [innerText]="email"></div>
+
+<!-- Template reference -->
+<div #emailDiv></div>
+
+
+{{emailDiv.name | json}}
+
+<!-- Event Binding -->
+<button class="btn btn-primary" (click)="toggle()">Toggle</button>
+
+
+<!-- property Binding -->
+<div *ngIf="hidden" [innerText]="email"></div>
+
+{{employee.id}}
+
+{{employee.name}}
+
+
+<dnt-employee-list></dnt-employee-list>

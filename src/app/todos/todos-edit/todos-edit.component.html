@@ -1,0 +1,20 @@
+{{todo | json}}
+{{editForm.pristine | json}}
+{{editForm.dirty | json}}
+<form #editForm="ngForm" (ngSubmit)="editTodo()">
+  <div class="form-group">
+    <input class="form-control" readonly type="number" [(ngModel)]="todo.id" name="id" placeholder="Id">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="number" [(ngModel)]="todo.userId" name="userId" placeholder="User ID">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text" [(ngModel)]="todo.title" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="checkbox" [(ngModel)]="todo.completed" name="completed" placeholder="Completed">
+  </div>
+  <div class="form-group">
+    <button [disabled]="editForm.pristine || editForm.invalid" type="submit" class="btn btn-primary">Edit Todo</button>
+  </div>
+</form>

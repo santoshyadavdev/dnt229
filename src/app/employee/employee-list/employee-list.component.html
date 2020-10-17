@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Even</th>
+      <th>Odd</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Date Of Birth</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [ngClass]="e? 'even': 'odd'"
+      *ngFor="let emp of employeeList; let i=index;let e=even ; let o=odd; trackBy: trackByFn  ">
+      <td>{{i}}</td>
+      <td>{{e}}</td>
+      <td>{{o}}</td>
+      <td>{{emp.id | percent}}</td>
+      <td>{{emp.name | lowercase}}</td>
+      <td>{{emp.dob | date : 'dd-MMM-yyyy' | lowercase }}</td>
+      <td>{{emp.email | titlecase}}</td>
+      <td>{{emp.salary | currency: 'GBP'}}</td>
+      <td>{{emp.age}}</td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,31 @@
+<h2>
+  {{title}}
+</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>HOD</th>
+      <th>Employee Count</th>
+      <th>Budget</th>
+      <th>
+        Select
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dept of deptList; ">
+      <td>{{dept.id}}</td>
+      <td>{{dept.name}}</td>
+      <td>{{dept.hod}}</td>
+      <td>{{dept.empCount}}</td>
+      <td>{{dept.budget}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="sendToParent(dept)">Select</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,35 @@
+{{todo | json}}
+<pre>
+{{todoForm.invalid | json}}
+{{todoForm.valid | json}}
+{{todoForm.value | json}}
+{{todoForm.pristine | json}}
+{{todoForm.dirty | json}}
+</pre>
+<form #todoForm="ngForm" (ngSubmit)="addTodo(todoForm);">
+  <mat-form-field>
+    <mat-label>User Id</mat-label>
+    <input required min="2" max="100" #userid="ngModel" matInput type="number" [(ngModel)]="todo.userId" name="userId"
+      placeholder="User ID">
+    <!-- {{userid.errors | json}} -->
+    <mat-error *ngIf="userid.hasError('required')">
+      UserID is required!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input #title="ngModel" required minlength="5" maxlength="10" matInput type="text" [(ngModel)]="todo.title"
+      [ngModelOptions]="{ updateOn:'blur', name:'title' }" placeholder="Title">
+    {{title.errors | json}}
+    <mat-error *ngIf="title.hasError('required')">Please enter the Name!</mat-error>
+    <!-- <mat-error *ngIf="title.hasError('email')">Please enter a valid Email!</mat-error> -->
+    <mat-error *ngIf="title.hasError('minlength')">Please enter the Name more than 4 character!</mat-error>
+  </mat-form-field>
+  <div>
+    <mat-checkbox [(ngModel)]="todo.completed" name="completed">Completed</mat-checkbox>
+  </div>
+  <div>
+    <button [disabled]="todoForm.pristine || todoForm.invalid" mat-raised-button color="primary" type="submit">Add
+      Todo</button>
+  </div>
+</form>
