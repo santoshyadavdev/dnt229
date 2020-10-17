@@ -21,7 +21,7 @@ export class TodosEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editTodo() {
+  editTodo(): void {
     this.todoService.updateTodo(this.todo).subscribe(res => console.log(res));
   }
 
