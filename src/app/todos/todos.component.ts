@@ -31,8 +31,6 @@ export class TodosComponent implements OnInit, OnDestroy {
     );
   }
 
-
-
   updateTodo() {
     const todo: Todos = {
       id: 1,
