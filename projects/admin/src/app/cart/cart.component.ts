@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatashareService } from '../services/datashare.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+
+  cart$ = this.dataShareService.getCartData();
+  constructor(private dataShareService: DatashareService) { }
 
   ngOnInit(): void {
+
   }
 
 }

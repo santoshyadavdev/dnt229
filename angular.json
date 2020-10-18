@@ -218,6 +218,7 @@
               "projects/admin/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/admin/src/styles.css"
             ],
             "scripts": []

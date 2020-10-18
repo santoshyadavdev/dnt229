@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DatashareService } from '../../services/datashare.service';
+import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +16,10 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  addToCart(product: Product) {
+    this.dataShareService.addToCart(product);
   }
 
 }
