@@ -15,6 +15,7 @@ import { TodosDetailsComponent } from './todos-details/todos-details.component';
 import { TodosAddComponent } from './todos-add/todos-add.component';
 import { PhotosComponent } from './photos/photos.component';
 import { FormsModule } from '@angular/forms';
+import { ValidatorDirective } from './directives/validator.directive';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     TodosEditComponent,
     PhotosComponent,
     TodosDetailsComponent,
+    ValidatorDirective,
   ],
   imports: [
     CommonModule,

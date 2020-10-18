@@ -18,7 +18,7 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Title</mat-label>
-    <input #title="ngModel" required minlength="5" maxlength="10" matInput type="text" [(ngModel)]="todo.title"
+    <input dntValidator #title="ngModel" required minlength="5" maxlength="10" matInput type="text" [(ngModel)]="todo.title"
       [ngModelOptions]="{ updateOn:'blur', name:'title' }" placeholder="Title">
     {{title.errors | json}}
     <mat-error *ngIf="title.hasError('required')">Please enter the Name!</mat-error>
