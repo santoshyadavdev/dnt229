@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeonboardingService } from './services/employeeonboarding.service';
+import { EmployeeonboardingService } from '../services/employeeonboarding.service';
 import { CustomValidator } from '../customvalidator/customvalidator';
 
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
+import { exhaustMap, filter, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'dnt-employee-onboarding',
@@ -18,7 +19,7 @@ export class EmployeeOnboardingComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder,
-              private employeeService: EmployeeonboardingService) { }
+    private employeeService: EmployeeonboardingService) { }
 
   ngOnInit(): void {
     this.onboardingForm = this.fb.group({
@@ -43,9 +44,16 @@ export class EmployeeOnboardingComponent implements OnInit {
           this.buildForm()
         ]
       )
-    }, { updateOn: 'blur', validators: [CustomValidator.passwordValidator] });
+    }, { updateOn: 'change', validators: [CustomValidator.passwordValidator] });
 
     this.bindFormData();
+
+    this.onboardingForm.valueChanges.pipe(
+      filter(() => this.onboardingForm.valid),
+      tap((data) => console.log(data)),
+      exhaustMap((data) => this.employeeService.addEmployee(data)),
+      tap((data) => console.log(data)),
+    ).subscribe();
   }
 
   bindFormData() {

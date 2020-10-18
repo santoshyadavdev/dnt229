@@ -7,6 +7,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeOnboardingComponent } from './employee-onboarding/employee-onboarding.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../header/header.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HeaderModule } from '../header/header.module';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     EmployeeRoutingModule,
     ReactiveFormsModule,
     HeaderModule
