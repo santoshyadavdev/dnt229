@@ -34,6 +34,7 @@ import { AccountModule } from './account/account.module';
 import { TableDemoComponent } from './table-demo/table-demo.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HoverDirective } from './directives/hover.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { environment } from '../environments/environment';
     MainNavComponent,
     PagenotfoundComponent,
     LoginComponent,
-    TableDemoComponent
+    TableDemoComponent,
+    HoverDirective
   ],
   imports: [
     BrowserModule,
